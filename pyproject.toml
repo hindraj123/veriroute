@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "veriroute"
+version = "0.1.0"
+description = "CircuitNet congestion-map LoRA SFT and verifier-guided GRPO prototype"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+train = [
+  "torch>=2.2",
+  "transformers>=4.46",
+  "trl>=0.14",
+  "peft>=0.13",
+  "datasets>=3.0",
+  "accelerate>=1.1",
+]
+circuitnet = ["numpy>=1.24"]
+
+[project.scripts]
+veriroute = "verireason_route.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["verireason_route*"]
